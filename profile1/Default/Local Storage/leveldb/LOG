@@ -1,0 +1,7 @@
+2024/09/07-17:36:25.625 5 Reusing MANIFEST /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/Local Storage/leveldb/MANIFEST-000001
+2024/09/07-17:36:25.637 5 Recovering log #200
+2024/09/07-17:36:25.638 5 Level-0 table #203: started
+2024/09/07-17:36:25.671 5 Level-0 table #203: 59718 bytes OK
+2024/09/07-17:36:25.672 5 Recovering log #202
+2024/09/07-17:36:25.673 5 Reusing old log /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/Local Storage/leveldb/000202.log 
+2024/09/07-17:36:25.688 5 Delete type=0 #200

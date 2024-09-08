@@ -1,1 +1,1 @@
-export { greet } from "./greeting";
+export {StartScript} from "./script"

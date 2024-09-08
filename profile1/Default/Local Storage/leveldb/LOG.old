@@ -1,0 +1,25 @@
+2024/09/07-17:29:23.933 5 Reusing MANIFEST /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/Local Storage/leveldb/MANIFEST-000001
+2024/09/07-17:29:23.950 5 Recovering log #191
+2024/09/07-17:29:23.951 5 Level-0 table #194: started
+2024/09/07-17:29:23.984 5 Level-0 table #194: 71664 bytes OK
+2024/09/07-17:29:23.984 5 Recovering log #193
+2024/09/07-17:29:23.985 5 Reusing old log /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/Local Storage/leveldb/000193.log 
+2024/09/07-17:29:24.006 5 Delete type=0 #191
+2024/09/07-17:31:24.991 4 Level-0 table #196: started
+2024/09/07-17:31:25.004 4 Level-0 table #196: 56442 bytes OK
+2024/09/07-17:31:25.019 4 Delete type=0 #193
+2024/09/07-17:31:25.020 5 Compacting 4@0 + 1@1 files
+2024/09/07-17:31:25.077 5 Generated table #197@0: 6404 keys, 466437 bytes
+2024/09/07-17:31:25.077 5 Compacted 4@0 + 1@1 files => 466437 bytes
+2024/09/07-17:31:25.099 5 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/09/07-17:31:25.102 5 Delete type=2 #192
+2024/09/07-17:31:25.102 5 Delete type=2 #194
+2024/09/07-17:31:25.102 5 Delete type=2 #196
+2024/09/07-17:31:25.102 5 Delete type=2 #190
+2024/09/07-17:31:25.102 5 Delete type=2 #188
+2024/09/07-17:32:24.991 5 Level-0 table #199: started
+2024/09/07-17:32:25.011 5 Level-0 table #199: 26933 bytes OK
+2024/09/07-17:32:25.040 5 Delete type=0 #195
+2024/09/07-17:35:24.991 7 Level-0 table #201: started
+2024/09/07-17:35:25.022 7 Level-0 table #201: 42688 bytes OK
+2024/09/07-17:35:25.036 7 Delete type=0 #198

@@ -1,7 +1,7 @@
 {
-  "name": "{{param `github.repo` | lowercase}}",
+  "name": "spotify_playlistscraper",
   "version": "1.0.0",
-  "description": "{{param `description`}}",
+  "description": "scrape all playlists and things",
   "main": "dist/index.js",
   "engines": {
     "npm": ">=10.8.1",
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{param `github.owner`}}/{{param `github.repo`}}.git"
+    "url": "git+https://github.com/benhichem/Spotify_PlayListScraper.git"
   },
-  "author": "{{param `git.name`}}<{{param `git.email`}}>",
+  "author": "benhichem<hichemben45@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/{{param `github.owner`}}/{{param `github.repo`}}/issues"
+    "url": "https://github.com/benhichem/Spotify_PlayListScraper/issues"
   },
-  "homepage": "https://github.com/{{param `github.owner`}}/{{param `github.repo`}}#readme",
+  "homepage": "https://github.com/benhichem/Spotify_PlayListScraper#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^8.0.1",
@@ -39,5 +39,12 @@
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "json-2-csv": "^5.5.5",
+    "puppeteer": "^23.3.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }

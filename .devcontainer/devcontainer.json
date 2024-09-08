@@ -1,5 +1,5 @@
 {
-  "name": "{{param `github.owner`}}/{{param `github.repo`}}",
+  "name": "benhichem/Spotify_PlayListScraper",
   "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
