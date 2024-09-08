@@ -7,7 +7,7 @@ const playlistInterested: Array<{ title: string; listners: string; artists: Arra
 export async function StartScript(url: string, fileNAme: string) {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       userDataDir: "profile1"
     })
     const page = await browser.newPage()

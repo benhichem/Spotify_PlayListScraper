@@ -5,43 +5,41 @@ import fs from "node:fs"
 
 (async () => {
   const artists: Array<string> = [
-    'https://open.spotify.com/artist/0WfaItAbs4vlgIA1cuqGtJ',
-    'https://open.spotify.com/artist/2qNrJcE9LjzPdiXbrjkqFa',
-    'https://open.spotify.com/artist/0kRAKgEOVI43Qkz9PLmPt8',
-    'https://open.spotify.com/artist/7H55rcKCfwqkyDFH9wpKM6',
-    'https://open.spotify.com/artist/4M5nCE77Qaxayuhp3fVn4V',
-    'https://open.spotify.com/artist/6b0Wy4mw8ePj9w2EX3s4V3',
-    'https://open.spotify.com/artist/7JSBgXyCDzX24iZCHJofIG',
-    'https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa',
-    'https://open.spotify.com/artist/23xqmJEN3oVxwzqtNIyR5m',
-    'https://open.spotify.com/artist/5wD0owYApRtYmjPWavWKvb',
-    'https://open.spotify.com/artist/7CQwac16i1W5ej8YpuL3dv',
-    'https://open.spotify.com/artist/6cpVjPOo5Ozn28hUfYBXqm',
-    'https://open.spotify.com/artist/3kft86DbqCNr7rjq3pEj0G',
-    'https://open.spotify.com/artist/1r1uxoy19fzMxunt3ONAkG',
-    'https://open.spotify.com/artist/5sXaGoRLSpd7VeyZrLkKwt',
-    'https://open.spotify.com/artist/6mU8ucezzms5I2kNH6HNlu',
-    'https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V',
-    'https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH',
-    'https://open.spotify.com/artist/2v4e16xkId2E5YbYEWgPP8',
-    'https://open.spotify.com/artist/42daDEQTdYaqtHG5sH5HMD',
-    'https://open.spotify.com/artist/7h4j9YTJJuAHzLCc3KCvYu',
-    'https://open.spotify.com/artist/1McMsnEElThX1knmY4oliG',
-    'https://open.spotify.com/artist/2qNrJcE9LjzPdiXbrjkqFa',
-    'https://open.spotify.com/artist/3M4HosBeaD82iQkv8HVnzB',
-    'https://open.spotify.com/artist/0S9wI9ZGeEwgNmVC61utdR',
-    'https://open.spotify.com/artist/1fOenv6ujqqTxpdl14eDkK',
-    'https://open.spotify.com/artist/574qIjE9UTvfSvtnIrdLaE',
-    'https://open.spotify.com/artist/0WfaItAbs4vlgIA1cuqGtJ',
-    'https://open.spotify.com/artist/3Aut8hgiqZSy2qmJluZMU9',
-    'https://open.spotify.com/artist/3QGKsAfhZdldQCLuLjk6zl',
-    'https://open.spotify.com/artist/4tvKz56Tr39bkhcQUTO0Xr',
-    'https://open.spotify.com/artist/1r1uxoy19fzMxunt3ONAkG'
+  'https://open.spotify.com/artist/6tn9l68c9srJn5o3pXx2Fb',
+  'https://open.spotify.com/artist/2nTjd2lNo1GVEfXM3bCnsh',
+  'https://open.spotify.com/artist/6eU0jV2eEZ8XTM7EmlguK6',
+  'https://open.spotify.com/artist/5HMNsIi6AQplZELW9jeLjd',
+  'https://open.spotify.com/artist/4YLtscXsxbVgi031ovDDdh',
+  'https://open.spotify.com/artist/72Pauuctba5lMzC89R0Vk0',
+  'https://open.spotify.com/artist/0CcvfJAMRa28MnCnujCdXQ',
+  'https://open.spotify.com/artist/60df5JBRRPcnSpsIMxxwQm',
+  'https://open.spotify.com/artist/2nTjd2lNo1GVEfXM3bCnsh',
+  'https://open.spotify.com/artist/3qnGvpP8Yth1AqSBMqON5x',
+  'https://open.spotify.com/artist/0VGhTaOPNUJgUfX7rOmzMX',
+  'https://open.spotify.com/artist/0tgaHqkU1p7QhBUIzKXVU9',
+  'https://open.spotify.com/artist/3UtTKOuKlWMQPSCyIvCDl6',
+  'https://open.spotify.com/artist/43cM1JWUzdfkZCi7rjkPnz',
+  'https://open.spotify.com/artist/4cEwEednPwWCdYT7ZhROZe',
+  'https://open.spotify.com/artist/22L3FsvrXWoLLEUApoNfpr',
+  'https://open.spotify.com/artist/01aC2ikO4Xgb2LUpf9JfKp',
+  'https://open.spotify.com/artist/2nTjd2lNo1GVEfXM3bCnsh',
+  'https://open.spotify.com/artist/1yawxcvEJTTtsz2aX3yruE',
+  'https://open.spotify.com/artist/2BVYdY4PyfCF9z4NrkhEB2',
+  'https://open.spotify.com/artist/1t3BkCQTMTGykNPpmj7drk',
+  'https://open.spotify.com/artist/4fXkvh05wFhuH77MfD4m9o',
+  'https://open.spotify.com/artist/3xMIGFfOGiQN5iyQYLbMqC',
+  'https://open.spotify.com/artist/2nTjd2lNo1GVEfXM3bCnsh',
+  'https://open.spotify.com/artist/3avnA23xLmCYfnsivruOgq',
+  'https://open.spotify.com/artist/6HhV0jtMMK5HYnYgG0xgtz',
+  'https://open.spotify.com/artist/4bUqnkrDrb4f7rqmDR9yDu',
+  'https://open.spotify.com/artist/6twIAGnYuIT1pncMAsXnEm',
+  'https://open.spotify.com/artist/0CUpzKPDfIVzYqMn47jiV3',
+  'https://open.spotify.com/artist/14mcXN2C0EoRrt96ddtL4L'
   ]
   // const artists: Array<string> = JSON.parse(fs.readFileSync('artists.txt').toString());
   // console.log(artists)
   for (var i = 0; i < artists.length; i++) {
-    await StartScript(artists[i], "yala")
+    await StartScript(artists[i], "sony")
   }
 
 })()

@@ -1,14 +1,7 @@
-2024/09/07-17:29:26.351 5cab Reusing MANIFEST /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/IndexedDB/https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/09/07-17:29:26.352 5cab Recovering log #102
-2024/09/07-17:29:26.434 5cab Reusing old log /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/IndexedDB/https_open.spotify.com_0.indexeddb.leveldb/000102.log 
-2024/09/07-17:30:37.666 5caa Level-0 table #108: started
-2024/09/07-17:30:37.862 5caa Level-0 table #108: 822668 bytes OK
-2024/09/07-17:30:37.898 5caa Delete type=0 #102
-2024/09/07-17:30:37.900 5cad Compacting 1@1 + 2@2 files
-2024/09/07-17:30:38.184 5cad Generated table #109@1: 26586 keys, 2255693 bytes
-2024/09/07-17:30:38.337 5cad Generated table #110@1: 13605 keys, 1206858 bytes
-2024/09/07-17:30:38.337 5cad Compacted 1@1 + 2@2 files => 3462551 bytes
-2024/09/07-17:30:38.357 5cad compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/09/07-17:30:38.358 5cad Delete type=2 #105
-2024/09/07-17:30:38.358 5cad Delete type=2 #104
-2024/09/07-17:30:38.358 5cad Delete type=2 #108
+2024/09/08-02:26:13.553 4715 Reusing MANIFEST /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/IndexedDB/https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/09/08-02:26:13.554 4715 Recovering log #190
+2024/09/08-02:26:13.650 4715 Reusing old log /home/coffee/repos/Spotify_PlayListScraper/profile1/Default/IndexedDB/https_open.spotify.com_0.indexeddb.leveldb/000190.log 
+2024/09/08-02:26:13.651 4715 Delete type=2 #187
+2024/09/08-02:26:13.651 4715 Delete type=2 #191
+2024/09/08-02:26:13.651 4715 Delete type=2 #188
+2024/09/08-02:26:13.651 4715 Delete type=2 #186
