@@ -43,6 +43,7 @@
   "dependencies": {
     "@types/puppeteer": "^7.0.4",
     "json-2-csv": "^5.5.5",
+    "pm2": "^5.4.2",
     "puppeteer": "^23.3.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"

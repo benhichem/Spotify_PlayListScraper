@@ -12,7 +12,9 @@ async function StartScript(url, fileNAme) {
     try {
         const browser = await puppeteer_extra_1.default.launch({
             headless: true,
-            userDataDir: "profile1"
+            //      userDataDir: "profile4",
+            args: ["--no-sandbox", "--disable-setuid-sandbox"],
+            executablePath: "/usr/bin/google-chrome-stable",
         });
         const page = await browser.newPage();
         await page.setViewport({
