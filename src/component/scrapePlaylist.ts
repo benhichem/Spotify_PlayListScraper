@@ -6,7 +6,7 @@ import { playlist } from "./utils";
 export async function ScrapePlaylists(page: Page, albums: Array<string>): Promise<Array<playlist>> {
   console.log(albums.length)
   let playlists: Array<playlist> = []
-  for (var i = 1; i <albums.length; i++) {
+  for (var i = 0; i <albums.length; i++) {
     const album = albums[i]
     try {
       await page.goto(TreatUrl(album), { timeout: 0, waitUntil: "networkidle2" })

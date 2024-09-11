@@ -8,7 +8,7 @@ export async function StartScript(url: string, fileNAme: string) {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      userDataDir: "profile1"
+      userDataDir: "profile1",
     })
     const page = await browser.newPage()
     await page.setViewport({

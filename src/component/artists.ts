@@ -29,4 +29,4 @@ async function GenerateArtistsLinks(url: string) {
 }
 
 
-GenerateArtistsLinks('https://open.spotify.com/playlist/3Z72yCEE7ejhoTr7C8liQy')
+GenerateArtistsLinks('https://open.spotify.com/playlist/37i9dQZF1DWT7oUl2XAhgF')

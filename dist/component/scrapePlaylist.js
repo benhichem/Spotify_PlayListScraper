@@ -5,7 +5,7 @@ const utils_1 = require("./utils");
 async function ScrapePlaylists(page, albums) {
     console.log(albums.length);
     let playlists = [];
-    for (var i = 1; i < albums.length; i++) {
+    for (var i = 0; i < albums.length; i++) {
         const album = albums[i];
         try {
             await page.goto((0, utils_1.TreatUrl)(album), { timeout: 0, waitUntil: "networkidle2" });

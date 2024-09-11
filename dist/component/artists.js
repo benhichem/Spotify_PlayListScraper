@@ -32,4 +32,4 @@ async function GenerateArtistsLinks(url) {
         console.log(error);
     }
 }
-GenerateArtistsLinks('https://open.spotify.com/playlist/3Z72yCEE7ejhoTr7C8liQy');
+GenerateArtistsLinks('https://open.spotify.com/playlist/37i9dQZF1DWT7oUl2XAhgF');
