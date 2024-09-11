@@ -1,0 +1,14 @@
+2024/09/10-19:59:01.408 25ba6 Recovering log #337
+2024/09/10-19:59:01.408 25ba6 Level-0 table #339: started
+2024/09/10-19:59:01.408 25ba6 Level-0 table #339: 124 bytes OK
+2024/09/10-19:59:01.410 25ba6 Delete type=0 #337
+2024/09/10-19:59:01.410 25ba6 Delete type=3 #335
+2024/09/10-19:59:01.410 25ba6 Compacting 4@0 + 1@1 files
+2024/09/10-19:59:01.411 25ba6 Generated table #341@0: 15 keys, 259 bytes
+2024/09/10-19:59:01.411 25ba6 Compacted 4@0 + 1@1 files => 259 bytes
+2024/09/10-19:59:01.412 25ba6 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/09/10-19:59:01.412 25ba6 Delete type=2 #333
+2024/09/10-19:59:01.412 25ba6 Delete type=2 #330
+2024/09/10-19:59:01.412 25ba6 Delete type=2 #336
+2024/09/10-19:59:01.412 25ba6 Delete type=2 #339
+2024/09/10-19:59:01.412 25ba6 Delete type=2 #328
