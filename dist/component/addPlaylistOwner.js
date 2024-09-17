@@ -20,7 +20,7 @@ async function GetOwnerName(playlists) {
             width: 1600
         });
         let results = [];
-        for (let index = 0; index < playlist.length; index++) {
+        for (let index = 0; index < playlists.length; index++) {
             const element = playlists[index];
             try {
                 await page.goto(element.url, { timeout: -1, waitUntil: "networkidle2" });
