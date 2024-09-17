@@ -20,7 +20,7 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
       width: 1600
     })
     let results: Array<{ playlistOwnerProfile: string, playlistOwner: string, url: string; playlistName: string; saves: string }> = []
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < playlist.length; index++) {
 
       const element = playlists[index];
       try {
@@ -61,7 +61,7 @@ import { json2csv } from "json-2-csv";
 (async () => {
 
   const files = fs.readdirSync('./csvs')
-  for (let index = 0; index < 1; index++) {
+  for (let index = 0; index < 5; index++) {
     const filename = files[index];
     const fileContenxt = fs.readFileSync(`./csvs/${filename}`).toString()
     const json: any = csv2json(fileContenxt)
