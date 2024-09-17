@@ -20,7 +20,7 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
       width: 1600
     })
     let results: Array<{ playlistOwnerProfile: string, playlistOwner: string, url: string; playlistName: string; saves: string }> = []
-    for (let index = 0; index < playlist.length; index++) {
+    for (let index = 0; index < playlists.length; index++) {
 
       const element = playlists[index];
       try {
