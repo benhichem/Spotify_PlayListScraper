@@ -48,6 +48,9 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
         results.push(element)
       }
     }
+    await page.close();
+    await browser.close()
+    
     return results
   } catch (error) {
     console.log(error)
