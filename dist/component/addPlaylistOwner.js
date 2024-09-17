@@ -20,7 +20,7 @@ async function GetOwnerName(playlists) {
             width: 1600
         });
         let results = [];
-        for (let index = 0; index < 5; index++) {
+        for (let index = 0; index < playlist.length; index++) {
             const element = playlists[index];
             try {
                 await page.goto(element.url, { timeout: -1, waitUntil: "networkidle2" });
@@ -57,7 +57,7 @@ async function GetOwnerName(playlists) {
 const json_2_csv_2 = require("json-2-csv");
 (async () => {
     const files = node_fs_1.default.readdirSync('./csvs');
-    for (let index = 0; index < 1; index++) {
+    for (let index = 0; index < 5; index++) {
         const filename = files[index];
         const fileContenxt = node_fs_1.default.readFileSync(`./csvs/${filename}`).toString();
         const json = (0, json_2_csv_1.csv2json)(fileContenxt);
