@@ -7,7 +7,7 @@ async function GenerateArtistsLinks(url: string) {
   try {
     const browser = await puppeteer.launch({
       headless: false,
-      userDataDir: "profile1"
+      // args: ['--no-sandbow', '--disable-setuid-sandbox'],
     })
     const page = await browser.newPage()
     await page.setViewport({
@@ -21,12 +21,16 @@ async function GenerateArtistsLinks(url: string) {
         return (item as HTMLAnchorElement).href
       })
     })
-    console.log(artists)
-    fs.writeFileSync('artists.txt', JSON.stringify(artists))
+    artists.push(url)
+    let x = new Set(artists)
+    const returnArtists = [...x]
+    console.log(returnArtists)
+    return returnArtists
   } catch (error) {
     console.log(error)
   }
 }
 
 
-GenerateArtistsLinks('https://open.spotify.com/playlist/37i9dQZF1DWT7oUl2XAhgF')
+// GenerateArtistsLinks("https://open.spotify.com/artist/3VStI6m5Ig9FAyUaa0lYAP")
+GenerateArtistsLinks(' https://open.spotify.com/playlist/37i9dQZF1DWZpGSuzrdTXg')

@@ -5,13 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const puppeteer_extra_1 = __importDefault(require("puppeteer-extra"));
 const puppeteer_extra_plugin_stealth_1 = __importDefault(require("puppeteer-extra-plugin-stealth"));
-const node_fs_1 = __importDefault(require("node:fs"));
 puppeteer_extra_1.default.use((0, puppeteer_extra_plugin_stealth_1.default)());
 async function GenerateArtistsLinks(url) {
     try {
         const browser = await puppeteer_extra_1.default.launch({
             headless: false,
-            userDataDir: "profile1"
+            // args: ['--no-sandbow', '--disable-setuid-sandbox'],
         });
         const page = await browser.newPage();
         await page.setViewport({
@@ -25,11 +24,15 @@ async function GenerateArtistsLinks(url) {
                 return item.href;
             });
         });
-        console.log(artists);
-        node_fs_1.default.writeFileSync('artists.txt', JSON.stringify(artists));
+        artists.push(url);
+        let x = new Set(artists);
+        const returnArtists = [...x];
+        console.log(returnArtists);
+        return returnArtists;
     }
     catch (error) {
         console.log(error);
     }
 }
-GenerateArtistsLinks('https://open.spotify.com/playlist/37i9dQZF1DWT7oUl2XAhgF');
+// GenerateArtistsLinks("https://open.spotify.com/artist/3VStI6m5Ig9FAyUaa0lYAP")
+GenerateArtistsLinks(' https://open.spotify.com/playlist/37i9dQZF1DWZpGSuzrdTXg');

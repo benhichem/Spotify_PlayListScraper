@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@types/puppeteer": "^7.0.4",
+    "csv-reader": "^1.0.12",
     "json-2-csv": "^5.5.5",
     "puppeteer": "^23.3.0",
     "puppeteer-extra": "^3.3.6",

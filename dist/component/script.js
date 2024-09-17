@@ -13,6 +13,7 @@ async function StartScript(url, fileNAme) {
         const browser = await puppeteer_extra_1.default.launch({
             headless: true,
             userDataDir: "profile1",
+            executablePath: "/root/.cache/puppeteer/chrome/linux-128.0.6613.119"
         });
         const page = await browser.newPage();
         await page.setViewport({

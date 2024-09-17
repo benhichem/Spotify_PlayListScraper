@@ -9,6 +9,7 @@ export async function StartScript(url: string, fileNAme: string) {
     const browser = await puppeteer.launch({
       headless: true,
       userDataDir: "profile1",
+      executablePath:"/root/.cache/puppeteer/chrome/linux-128.0.6613.119"
     })
     const page = await browser.newPage()
     await page.setViewport({
