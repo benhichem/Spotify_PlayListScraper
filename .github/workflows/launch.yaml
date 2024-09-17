@@ -20,7 +20,7 @@ jobs:
         run: npm install
       - name: Run roll
         timeout-minutes: 2880
-        run: node dist/component/addPlaylistOwner.js 
+        run: tsc && node dist/component/addPlaylistOwner.js 
       - name: Save the generated files
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
