@@ -20,7 +20,7 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
       width: 1600
     })
     let results: Array<{ playlistOwnerProfile: string, playlistOwner: string, url: string; playlistName: string; saves: string }> = []
-    for (let index = 0; index < 3; index++) {
+    for (let index = 0; index < playlists.length; index++) {
       const element = playlists[index];
       await page.goto(element.url, { timeout: 0, waitUntil: "networkidle2" })
       await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 5000 })
@@ -38,12 +38,13 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
       console.log(element)
       results.push(element)
     }
+    return results
   } catch (error) {
     console.log(error)
   }
 }
 
-
+import { json2csv } from "json-2-csv";
 (async () => {
 
   const files = fs.readdirSync('./csvs')
@@ -52,7 +53,8 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
     const fileContenxt = fs.readFileSync(`./csvs/${filename}`).toString()
     const json: any = csv2json(fileContenxt)
     let results = await GetOwnerName(json)
-    console.log(results)
+    let fileString = json2csv(results!)
+    fs.writeFileSync(`./output/${filename}`, fileString)
   }
 })()
 

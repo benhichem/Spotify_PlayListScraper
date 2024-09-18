@@ -11,8 +11,8 @@ const puppeteer_extra_1 = __importDefault(require("puppeteer-extra"));
 async function GetOwnerName(playlists) {
     try {
         const browser = await puppeteer_extra_1.default.launch({
-            headless: false,
-            userDataDir: "profile1"
+            headless: true,
+            args: ['--no-sandbox']
         });
         const page = await browser.newPage();
         await page.setViewport({
@@ -20,7 +20,7 @@ async function GetOwnerName(playlists) {
             width: 1600
         });
         let results = [];
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < playlists.length; index++) {
             const element = playlists[index];
             await page.goto(element.url, { timeout: 0, waitUntil: "networkidle2" });
             await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 5000 });
@@ -38,11 +38,13 @@ async function GetOwnerName(playlists) {
             console.log(element);
             results.push(element);
         }
+        return results;
     }
     catch (error) {
         console.log(error);
     }
 }
+const json_2_csv_2 = require("json-2-csv");
 (async () => {
     const files = node_fs_1.default.readdirSync('./csvs');
     for (let index = 0; index < files.length; index++) {
@@ -50,6 +52,7 @@ async function GetOwnerName(playlists) {
         const fileContenxt = node_fs_1.default.readFileSync(`./csvs/${filename}`).toString();
         const json = (0, json_2_csv_1.csv2json)(fileContenxt);
         let results = await GetOwnerName(json);
-        console.log(results);
+        let fileString = (0, json_2_csv_2.json2csv)(results);
+        node_fs_1.default.writeFileSync(`./output/${filename}`, fileString);
     }
 })();
