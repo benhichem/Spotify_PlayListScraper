@@ -23,6 +23,7 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
     for (let index = 0; index < playlists.length; index++) {
 
       const element = playlists[index];
+      console.log(element)
       try {
 
         await page.goto(element.url, { timeout: -1, waitUntil: "networkidle2" })
