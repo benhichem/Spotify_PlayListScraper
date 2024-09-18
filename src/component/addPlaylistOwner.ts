@@ -61,7 +61,7 @@ import { json2csv } from "json-2-csv";
 (async () => {
 
   const files = fs.readdirSync('./csvs')
-  for (let index = 6; index < 12; index++) {
+  for (let index = 12; index < 19; index++) {
     const filename = files[index];
     const fileContenxt = fs.readFileSync(`./csvs/${filename}`).toString()
     const json: any = csv2json(fileContenxt)
