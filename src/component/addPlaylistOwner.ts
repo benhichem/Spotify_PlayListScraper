@@ -21,22 +21,32 @@ async function GetOwnerName(playlists: Array<{ playlistOwnerProfile: string, pla
     })
     let results: Array<{ playlistOwnerProfile: string, playlistOwner: string, url: string; playlistName: string; saves: string }> = []
     for (let index = 0; index < 5; index++) {
+
       const element = playlists[index];
-      await page.goto(element.url, { timeout: 0, waitUntil: "networkidle2" })
-      await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 5000 })
-      let creatorLink = await page.evaluate(() => {
-        let creator = document.querySelector('a[data-testid=creator-link]')
-        if (creator !== null) {
-          return {
-            playlistOwner: (creator as HTMLAnchorElement).innerText,
-            playlistOwnerProfile: (creator as HTMLAnchorElement).href
+      try {
+
+        await page.goto(element.url, { timeout: -1, waitUntil: "networkidle2" })
+        await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 4999 })
+        let creatorLink = await page.evaluate(() => {
+          let creator = document.querySelector('a[data-testid=creator-link]')
+          if (creator !== null) {
+            return {
+              playlistOwner: (creator as HTMLAnchorElement).innerText,
+              playlistOwnerProfile: (creator as HTMLAnchorElement).href
+            }
           }
-        }
-      })
-      element.playlistOwner = creatorLink?.playlistOwner!
-      element.playlistOwnerProfile = creatorLink?.playlistOwnerProfile!
-      console.log(element)
-      results.push(element)
+        })
+        element.playlistOwner = creatorLink?.playlistOwner!
+        element.playlistOwnerProfile = creatorLink?.playlistOwnerProfile!
+        console.log(element)
+        results.push(element)
+
+      } catch (error) {
+        console.log('[-] Failed to Get The PlaylistOwner ::', error)
+        element.playlistName = ""
+        element.playlistOwnerProfile = ""
+        results.push(element)
+      }
     }
     return results
   } catch (error) {
