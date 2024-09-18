@@ -58,7 +58,7 @@ async function GetOwnerName(playlists) {
 const json_2_csv_2 = require("json-2-csv");
 (async () => {
     const files = node_fs_1.default.readdirSync('./csvs');
-    for (let index = 12; index < 19; index++) {
+    for (let index = 0; index < files.length; index++) {
         const filename = files[index];
         const fileContenxt = node_fs_1.default.readFileSync(`./csvs/${filename}`).toString();
         const json = (0, json_2_csv_1.csv2json)(fileContenxt);
