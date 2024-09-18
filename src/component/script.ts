@@ -29,7 +29,6 @@ export async function StartScript(url: string, fileNAme: string) {
         return attribute
       })
       return attribute_album_links
-
     })
 
 

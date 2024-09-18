@@ -12,6 +12,10 @@ export async function ScrapePlaylists(page: Page, albums: Array<string>): Promis
       await page.goto(TreatUrl(album), { timeout: 0, waitUntil: "networkidle2" })
       await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 5000 })
       const playlistinfo = await page.evaluate(() => {
+        const playlistCreator = document.querySelector('a[data-testid=creator-link]') ? (document.querySelector('a[data-testid=creator-link]') as HTMLElement).innerText : "";
+        if(playlistCreator === "Spotify"){
+          return null
+        }
         let listners: string = "";
         const title = document.querySelector('span[data-testid="entityTitle"]') ? (document.querySelector('span[data-testid="entityTitle"]') as HTMLElement).innerText : ""
         Array.from(document.querySelectorAll('span')).map((item) => {
@@ -36,8 +40,12 @@ export async function ScrapePlaylists(page: Page, albums: Array<string>): Promis
         const artists = [...artSet]
         return { title, listners, artists, url: document.URL }
       })
-      console.log(playlistinfo)
-      playlists.push(playlistinfo)
+      if(playlistinfo === null){
+        console.log('playlist was made by spotify')
+      }else{
+        console.log(playlistinfo)
+        playlists.push(playlistinfo)
+      }
     } catch (error) {
       return [] as Array<playlist>
     }

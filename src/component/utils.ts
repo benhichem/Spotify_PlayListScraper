@@ -59,10 +59,7 @@ export function saveData(path: string, data: Array<playlist>) {
     fs.writeFile(path, data2, { flag: "a" }, () => {
       console.log('Finished Writing File ... ')
     })
-    fs.writeFile("artists.txt", JSON.stringify(artits), () => {
-      console.log('Finished Writing Playlist Artists Names ... ')
-    })
-  } catch (error) {
+    } catch (error) {
     console.log(error)
   }
 }
