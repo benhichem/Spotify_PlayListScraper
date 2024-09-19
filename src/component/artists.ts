@@ -8,7 +8,7 @@ puppeteer.use(StealthPlugin())
 export async function GenerateArtistsLinks(artistsArray:Array<string>) {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbow', '--disable-setuid-sandbox'],
     })
     const page = await browser.newPage()
@@ -34,7 +34,7 @@ export async function GenerateArtistsLinks(artistsArray:Array<string>) {
 
       const playlistInfo = await ScrapePlaylists(page, albums)
       console.log(playlistInfo)
-      
+
 
 
     }
