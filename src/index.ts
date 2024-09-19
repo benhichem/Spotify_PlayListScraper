@@ -5,6 +5,7 @@ import { GenerateArtistsLinks } from "./component/artists";
 
 
 (async () => {
+  console.log('[Refectoring stage 1 :: ]')
   const links:Array<string> = [
     "https://open.spotify.com/artist/2gqMBdyddvN82dzZt4ZF14",
     "https://open.spotify.com/artist/068h66CFkNBvqw5SaIQ3ZA",
@@ -27,8 +28,9 @@ import { GenerateArtistsLinks } from "./component/artists";
     "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
     "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u"
     ]
-    
+
  const artistss = GenerateArtistsLinks(links)
+ 
   /* for (var i = 0; i < artistss.length; i++) {
     // await StartScript(artists[i], "micah_edwards")
     const elementArtists = artistss[i]
