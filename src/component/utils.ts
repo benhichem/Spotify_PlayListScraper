@@ -6,7 +6,10 @@ export function TreatUrl(cardInfo: string): string {
 export type playlist = {
   title: string;
   listners: string;
-  artists: Array<string>;
+  artists: Array<{
+    artistName:string; 
+    artistUrl:string;
+  }>;
   url: string
 }
 
@@ -40,19 +43,21 @@ import { json2csv } from "json-2-csv"
 import fs from "node:fs"
 export function saveData(path: string, data: Array<playlist>) {
   // we need to save artists alone, and also we need to save the playlists alone aswell
-  const artits: Array<string> = []
+  //const artits: Array<string> = []
   const playlists: Array<{ url: string; playlistName: string; saves: string }> = []
   try {
     for (let index = 0; index < data.length; index++) {
       const element = data[index];
 
+      /* 
       element.artists.map((item) => {
         artits.push(item)
-      })
+      }) */
       playlists.push({
         url: element.url,
         playlistName: element.title,
-        saves: element.listners
+        saves: element.listners,
+        
       })
     }
     let data2 = json2csv(playlists)

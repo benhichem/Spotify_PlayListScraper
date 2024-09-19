@@ -33,7 +33,6 @@ export async function ScrapePlaylists(
           return null;
         }
 
-
         let listners: string = "";
         const title = document.querySelector('span[data-testid="entityTitle"]')
           ? (
@@ -47,32 +46,28 @@ export async function ScrapePlaylists(
             listners = item.innerText;
           }
         });
-        const art3: Array<string> = [];
+        const art3:Array<{artistName:string; artistUrl:string}> = [];
         const art = Array.from(
           document.querySelectorAll('div[data-testid="tracklist-row"]')
         ).map((item) => {
-          return (item as HTMLElement).innerText.split("\n")[1];
-        });
-        art.map((item) => {
-          if (item.includes(",")) {
-            item.split(",").map((ids) => {
-              art3.push(ids.trim());
-            });
-          } else {
-            art3.push(item);
-          }
+          return {
+            artistsName: (item as HTMLElement).innerText.split("\n")[1],
+            artistUrl: item.querySelectorAll("a")[1].href,
+          };
         });
 
         const artSet = new Set(art3);
         const artists = [...artSet];
-        return { title,
+        return {
+          title,
           listners,
           artists,
           url: document.URL,
           playlistCreator: playlistCreator.innerText,
-          playlistCreatorLink:playlistCreator.href 
+          playlistCreatorLink: playlistCreator.href,
         };
       });
+
       if (playlistinfo === null) {
         console.log("playlist was made by spotify");
       } else {
