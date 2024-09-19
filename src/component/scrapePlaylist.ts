@@ -51,12 +51,12 @@ export async function ScrapePlaylists(
           document.querySelectorAll('div[data-testid="tracklist-row"]')
         ).map((item) => {
           return {
-            artistsName: (item as HTMLElement).innerText.split("\n")[1],
+            artistName: (item as HTMLElement).innerText.split("\n")[1],
             artistUrl: item.querySelectorAll("a")[1].href,
           };
         });
 
-        const artSet = new Set(art3);
+        const artSet = new Set(art);
         const artists = [...artSet];
         return {
           title,
