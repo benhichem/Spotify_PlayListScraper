@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const artists_1 = require("./component/artists");
 (async () => {
+    console.log('[Refectoring stage 1 :: ]');
     const links = [
         "https://open.spotify.com/artist/2gqMBdyddvN82dzZt4ZF14",
         "https://open.spotify.com/artist/068h66CFkNBvqw5SaIQ3ZA",
