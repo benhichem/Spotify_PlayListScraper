@@ -55,9 +55,6 @@ function saveData(path, data) {
         node_fs_1.default.writeFile(path, data2, { flag: "a" }, () => {
             console.log('Finished Writing File ... ');
         });
-        node_fs_1.default.writeFile("artists.txt", JSON.stringify(artits), () => {
-            console.log('Finished Writing Playlist Artists Names ... ');
-        });
     }
     catch (error) {
         console.log(error);

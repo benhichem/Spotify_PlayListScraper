@@ -27,7 +27,8 @@ import { GenerateArtistsLinks } from "./component/artists";
     "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
     "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u"
     ]
- const artistss: string | any[] = GenerateArtistsLinks(links)
+    
+ const artistss = GenerateArtistsLinks(links)
   /* for (var i = 0; i < artistss.length; i++) {
     // await StartScript(artists[i], "micah_edwards")
     const elementArtists = artistss[i]

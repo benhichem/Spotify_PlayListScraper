@@ -8,23 +8,39 @@ async function ScrapePlaylists(page, albums) {
     for (var i = 0; i < albums.length; i++) {
         const album = albums[i];
         try {
-            await page.goto((0, utils_1.TreatUrl)(album), { timeout: 0, waitUntil: "networkidle2" });
-            await page.waitForSelector('span[data-testid="entityTitle"]', { timeout: 5000 });
+            await page.goto((0, utils_1.TreatUrl)(album), {
+                timeout: 0,
+                waitUntil: "networkidle2",
+            });
+            await page.waitForSelector('span[data-testid="entityTitle"]', {
+                timeout: 5000,
+            });
             const playlistinfo = await page.evaluate(() => {
+                const playlistCreator = document.querySelector("a[data-testid=creator-link]")
+                    ? document.querySelector("a[data-testid=creator-link]")
+                    : null;
+                if (playlistCreator === null) {
+                    return null;
+                }
+                else if (playlistCreator.innerText === "Spotify") {
+                    return null;
+                }
                 let listners = "";
-                const title = document.querySelector('span[data-testid="entityTitle"]') ? document.querySelector('span[data-testid="entityTitle"]').innerText : "";
-                Array.from(document.querySelectorAll('span')).map((item) => {
-                    if (item.innerText.includes('saves')) {
+                const title = document.querySelector('span[data-testid="entityTitle"]')
+                    ? document.querySelector('span[data-testid="entityTitle"]').innerText
+                    : "";
+                Array.from(document.querySelectorAll("span")).map((item) => {
+                    if (item.innerText.includes("saves")) {
                         listners = item.innerText;
                     }
                 });
                 const art3 = [];
                 const art = Array.from(document.querySelectorAll('div[data-testid="tracklist-row"]')).map((item) => {
-                    return item.innerText.split('\n')[1];
+                    return item.innerText.split("\n")[1];
                 });
                 art.map((item) => {
                     if (item.includes(",")) {
-                        item.split(',').map((ids) => {
+                        item.split(",").map((ids) => {
                             art3.push(ids.trim());
                         });
                     }
@@ -34,10 +50,21 @@ async function ScrapePlaylists(page, albums) {
                 });
                 const artSet = new Set(art3);
                 const artists = [...artSet];
-                return { title, listners, artists, url: document.URL };
+                return { title,
+                    listners,
+                    artists,
+                    url: document.URL,
+                    playlistCreator: playlistCreator.innerText,
+                    playlistCreatorLink: playlistCreator.href
+                };
             });
-            console.log(playlistinfo);
-            playlists.push(playlistinfo);
+            if (playlistinfo === null) {
+                console.log("playlist was made by spotify");
+            }
+            else {
+                console.log(playlistinfo);
+                playlists.push(playlistinfo);
+            }
         }
         catch (error) {
             return [];
