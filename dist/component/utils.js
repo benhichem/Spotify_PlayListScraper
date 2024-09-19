@@ -37,18 +37,19 @@ const json_2_csv_1 = require("json-2-csv");
 const node_fs_1 = __importDefault(require("node:fs"));
 function saveData(path, data) {
     // we need to save artists alone, and also we need to save the playlists alone aswell
-    const artits = [];
+    //const artits: Array<string> = []
     const playlists = [];
     try {
         for (let index = 0; index < data.length; index++) {
             const element = data[index];
+            /*
             element.artists.map((item) => {
-                artits.push(item);
-            });
+              artits.push(item)
+            }) */
             playlists.push({
                 url: element.url,
                 playlistName: element.title,
-                saves: element.listners
+                saves: element.listners,
             });
         }
         let data2 = (0, json_2_csv_1.json2csv)(playlists);

@@ -36,26 +36,20 @@ async function ScrapePlaylists(page, albums) {
                 });
                 const art3 = [];
                 const art = Array.from(document.querySelectorAll('div[data-testid="tracklist-row"]')).map((item) => {
-                    return item.innerText.split("\n")[1];
-                });
-                art.map((item) => {
-                    if (item.includes(",")) {
-                        item.split(",").map((ids) => {
-                            art3.push(ids.trim());
-                        });
-                    }
-                    else {
-                        art3.push(item);
-                    }
+                    return {
+                        artistsName: item.innerText.split("\n")[1],
+                        artistUrl: item.querySelectorAll("a")[1].href,
+                    };
                 });
                 const artSet = new Set(art3);
                 const artists = [...artSet];
-                return { title,
+                return {
+                    title,
                     listners,
                     artists,
                     url: document.URL,
                     playlistCreator: playlistCreator.innerText,
-                    playlistCreatorLink: playlistCreator.href
+                    playlistCreatorLink: playlistCreator.href,
                 };
             });
             if (playlistinfo === null) {

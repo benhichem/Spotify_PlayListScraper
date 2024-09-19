@@ -52,5 +52,3 @@ async function GenerateArtistsLinks(artistsArray) {
         console.log(error);
     }
 }
-// GenerateArtistsLinks("https://open.spotify.com/artist/3VStI6m5Ig9FAyUaa0lYAP")
-// GenerateArtistsLinks(' https://open.spotify.com/playlist/37i9dQZF1DWZpGSuzrdTXg')

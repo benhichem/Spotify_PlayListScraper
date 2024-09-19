@@ -25,7 +25,7 @@ const artists_1 = require("./component/artists");
         "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
         "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u"
     ];
-    const artistss = (0, artists_1.GenerateArtistsLinks)(links);
+    const artistss = await (0, artists_1.GenerateArtistsLinks)(links);
     /* for (var i = 0; i < artistss.length; i++) {
       // await StartScript(artists[i], "micah_edwards")
       const elementArtists = artistss[i]
