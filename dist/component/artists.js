@@ -11,7 +11,7 @@ puppeteer_extra_1.default.use((0, puppeteer_extra_plugin_stealth_1.default)());
 async function GenerateArtistsLinks(artistsArray) {
     try {
         const browser = await puppeteer_extra_1.default.launch({
-            headless: false,
+            headless: true,
             args: ['--no-sandbow', '--disable-setuid-sandbox'],
         });
         const page = await browser.newPage();
