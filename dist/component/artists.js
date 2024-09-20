@@ -59,7 +59,6 @@ async function GenerateArtistsLinks(artistsArray) {
                     }
                 });
             });
-            console.log('Avalible Artists Found is  :: ', AvaliableArtistFound.length);
             // console.log(`Current Playlist record is ${FinalPlaylist.length}`)
             for (var i = 0; i < AvaliableArtistFound.length; i++) {
                 console.log(`Current Playlist record is ${FinalPlaylist.length}`);
@@ -98,6 +97,7 @@ async function GenerateArtistsLinks(artistsArray) {
                                 });
                                 return attribute_album_links;
                             });
+                            console.log('Cards :: ', cards.length);
                             const playlistFromConnectedArtist = await (0, scrapePlaylist_1.ScrapePlaylists)(page, cards);
                             // we do what we need to do from here ... 
                             playlistFromConnectedArtist.map((playlist) => {
