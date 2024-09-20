@@ -7,9 +7,9 @@ import { GenerateArtistsLinks } from "./component/artists";
 (async () => {
   console.log('[Refectoring stage 1 :: ]')
   const links:Array<string> = [
-    "https://open.spotify.com/artist/2gqMBdyddvN82dzZt4ZF14",
+  //  "https://open.spotify.com/artist/2gqMBdyddvN82dzZt4ZF14",
     "https://open.spotify.com/artist/068h66CFkNBvqw5SaIQ3ZA",
-    "https://open.spotify.com/artist/2MPe4h9blynt1CfCkMku6j",
+/*     "https://open.spotify.com/artist/2MPe4h9blynt1CfCkMku6j",
     "https://open.spotify.com/artist/57FbfTkxFU7crAkIEtioth",
     "https://open.spotify.com/artist/75OSuJw6r1LCdYgmTt0gHs",
     "https://open.spotify.com/artist/1y20PpXw0yeuJ1avCD0Ob9",
@@ -26,7 +26,7 @@ import { GenerateArtistsLinks } from "./component/artists";
     "https://open.spotify.com/artist/57kIMCLPgkzQlXjblX7XXP",
     "https://open.spotify.com/artist/2BpAc5eK7Rz5GAwSp9UYXa",
     "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
-    "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u"
+    "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u" */
     ]
 
  const artistss = await GenerateArtistsLinks(links)

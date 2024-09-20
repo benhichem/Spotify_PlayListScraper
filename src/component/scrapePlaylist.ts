@@ -16,9 +16,12 @@ export async function ScrapePlaylists(
         timeout: 0,
         waitUntil: "networkidle2",
       });
-      await page.waitForSelector('span[data-testid="entityTitle"]', {
+     let waitSelector =  await page.waitForSelector('span[data-testid="entityTitle"]', {
         timeout: 5000,
+      }).catch((error)=>{
+        return null
       });
+      if(waitSelector ===  null) continue;
       const playlistinfo = await page.evaluate(() => {
         const playlistCreator = document.querySelector(
           "a[data-testid=creator-link]"

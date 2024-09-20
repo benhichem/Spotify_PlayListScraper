@@ -18,7 +18,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
       width: 1600,
     });
     
-    for (let index = 1; index < 3; index++) {
+    for (let index = 1; index < artistsArray.length; index++) {
       const url = artistsArray[index];
 
       // Getting Artist Name
