@@ -7,6 +7,7 @@ exports.GenerateArtistsLinks = GenerateArtistsLinks;
 const puppeteer_extra_1 = __importDefault(require("puppeteer-extra"));
 const puppeteer_extra_plugin_stealth_1 = __importDefault(require("puppeteer-extra-plugin-stealth"));
 const scrapePlaylist_1 = require("./scrapePlaylist");
+const utils_1 = require("./utils");
 puppeteer_extra_1.default.use((0, puppeteer_extra_plugin_stealth_1.default)());
 async function GenerateArtistsLinks(artistsArray) {
     try {
@@ -76,11 +77,14 @@ async function GenerateArtistsLinks(artistsArray) {
                             : 0;
                     });
                     if (typeof followers === "number") {
+                        console.log('Follower Counts undefined  :: ', followers);
                         continue;
                     }
                     else if (typeof followers === "string") {
                         const numFolloweris = eval(followers.split(' ')[0]);
-                        if (numFolloweris < 100000) {
+                        console.log(numFolloweris);
+                        if (numFolloweris < 40000) {
+                            console.log('follower count is lower than 100k');
                             continue;
                         }
                         else {
@@ -100,7 +104,8 @@ async function GenerateArtistsLinks(artistsArray) {
                             console.log('Cards :: ', cards.length);
                             const playlistFromConnectedArtist = await (0, scrapePlaylist_1.ScrapePlaylists)(page, cards);
                             // we do what we need to do from here ... 
-                            playlistFromConnectedArtist.map((playlist) => {
+                            let AfterFinalPlaylist = (0, utils_1.validatePlaylist)(playlistFromConnectedArtist);
+                            AfterFinalPlaylist.map((playlist) => {
                                 FinalPlaylist.push(playlist);
                             });
                             if (FinalPlaylist.length > 500) {
