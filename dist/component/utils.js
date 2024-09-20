@@ -12,7 +12,7 @@ function TreatUrl(cardInfo) {
 }
 function validatePlaylistSaves(PlayLists) {
     const returnplaylist = [];
-    for (let index = 0; index < /* PlayLists.length */ 5; index++) {
+    for (let index = 0; index < PlayLists.length; index++) {
         const element = PlayLists[index];
         const savesNumPhaseOne = element.listners.split('saves')[0];
         const saveNumPhaseTwo = savesNumPhaseOne.split(',');
