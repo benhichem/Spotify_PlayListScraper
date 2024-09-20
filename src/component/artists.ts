@@ -63,14 +63,19 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
 
       const playlistInfo = await ScrapePlaylists(page, OriginalArtistAlbums);
 
+      console.log(playlistInfo)
       console.log("Original Playlist Cards Found is :: ", playlistInfo.length);
+      if(playlistInfo.length === 0){
+        console.log(`${OriginalArtistAlbums}`)
+        continue;
+      }
 
       const AvaliableArtistFound: Array<Artist> = [];
 
       // final Playlist To return and print into csv
       const FinalPlaylist:Array<playlist> = [];
       let valideOriginalCard = validatePlaylistSaves(playlistInfo)
-      
+
       valideOriginalCard.map((item)=>{
         FinalPlaylist.push(item)
       });

@@ -75,6 +75,7 @@ export async function ScrapePlaylists(
         playlists.push(playlistinfo);
       }
     } catch (error) {
+      console.log(error)
       return [] as Array<playlist>;
     }
   }
