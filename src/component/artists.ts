@@ -2,7 +2,7 @@ import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import fs from "node:fs";
 import { ScrapePlaylists } from "./scrapePlaylist";
-import { Artist } from "./utils";
+import { Artist, validatePlaylist } from "./utils";
 
 puppeteer.use(StealthPlugin());
 
@@ -97,11 +97,15 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
               : 0;
           });
           
+          
           if (typeof followers === "number") {
+            console.log('Follower Counts undefined  :: ', followers )
             continue;
           } else if (typeof followers === "string") {
             const numFolloweris = eval(followers.split(' ')[0])
-            if(numFolloweris < 100000){
+            console.log(numFolloweris)
+            if(numFolloweris < 40000){
+              console.log('follower count is lower than 100k')
               continue;
             }else{
               // its a valid Artist 
@@ -126,13 +130,15 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
               const playlistFromConnectedArtist = await ScrapePlaylists(page, cards)
               
               // we do what we need to do from here ... 
-              playlistFromConnectedArtist.map((playlist)=>{
+              let AfterFinalPlaylist = validatePlaylist(playlistFromConnectedArtist)
+              AfterFinalPlaylist.map((playlist)=>{
                 FinalPlaylist.push(playlist)
               })
 
               if(FinalPlaylist.length > 500){
                 break;
               }
+              
             }
           }
         } catch (error) {
