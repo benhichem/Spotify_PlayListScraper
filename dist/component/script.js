@@ -36,7 +36,7 @@ async function StartScript(url, fileNAme) {
         if (albums) {
             let list = await (0, scrapePlaylist_1.ScrapePlaylists)(page, albums);
             // saveData("ty_StoneHawker.csv",validatePlaylist(list))
-            let Validplaylist = (0, utils_1.validatePlaylist)(list);
+            let Validplaylist = (0, utils_1.validatePlaylistSaves)(list);
             (0, utils_1.saveData)(`${fileNAme.trim()}.csv`, Validplaylist);
         }
         await page.close();
