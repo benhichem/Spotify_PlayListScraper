@@ -15,11 +15,11 @@ export type playlist = {
   url: string
 }
 
-export function validatePlaylist(PlayLists: Array<playlist>): Array<playlist> {
+export function validatePlaylistSaves(PlayLists: Array<playlist>): Array<playlist> {
 
   const returnplaylist: Array<playlist> = []
 
-  for (let index = 0; index < PlayLists.length; index++) {
+  for (let index = 0; index < /* PlayLists.length */5; index++) {
     const element = PlayLists[index];
     const savesNumPhaseOne = element.listners.split('saves')[0]
     const saveNumPhaseTwo = savesNumPhaseOne.split(',')

@@ -2,7 +2,7 @@ import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import fs from "node:fs";
 import { ScrapePlaylists } from "./scrapePlaylist";
-import { Artist, validatePlaylist } from "./utils";
+import { Artist, playlist, saveData, validatePlaylistSaves } from "./utils";
 
 puppeteer.use(StealthPlugin());
 
@@ -65,7 +65,12 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
 
       const AvaliableArtistFound: Array<Artist> = [];
       // final Playlist To return and print into csv
-      const FinalPlaylist = [...playlistInfo];
+      const FinalPlaylist:Array<playlist> = [];
+      
+      playlistInfo.map((item)=>{
+        FinalPlaylist.push(item)
+      });
+
       playlistInfo.map((artist) => {
         artist.artists.map((item) => {
           if (!AvaliableArtistFound.includes(item)) {
@@ -105,7 +110,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
             const numFolloweris = eval(followers.split(' ')[0].split(',').join(''))
             console.log(numFolloweris)
             if(numFolloweris < 40000){
-              console.log('follower count is lower than 100k')
+              console.log('follower count is lower than 100k');
               continue;
             }else{
               // its a valid Artist 
@@ -129,16 +134,16 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
               console.log('Cards :: ', cards.length);
               const playlistFromConnectedArtist = await ScrapePlaylists(page, cards)
               
-              // we do what we need to do from here ... 
-              let AfterFinalPlaylist = validatePlaylist(playlistFromConnectedArtist)
+              // validating playlists Here ...
+              let AfterFinalPlaylist = validatePlaylistSaves(playlistFromConnectedArtist);
+
               AfterFinalPlaylist.map((playlist)=>{
                 FinalPlaylist.push(playlist)
-              })
-
-              if(FinalPlaylist.length > 500){
+              });
+              if(FinalPlaylist.length > 100){
+                saveData(`${OriginalArtistName}.csv`,FinalPlaylist)
                 break;
               }
-              
             }
           }
         } catch (error) {
