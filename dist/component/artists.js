@@ -52,7 +52,10 @@ async function GenerateArtistsLinks(artistsArray) {
             console.log("Original Playlist Cards Found is :: ", playlistInfo.length);
             const AvaliableArtistFound = [];
             // final Playlist To return and print into csv
-            const FinalPlaylist = [...playlistInfo];
+            const FinalPlaylist = [];
+            playlistInfo.map((item) => {
+                FinalPlaylist.push(item);
+            });
             playlistInfo.map((artist) => {
                 artist.artists.map((item) => {
                     if (!AvaliableArtistFound.includes(item)) {
@@ -103,12 +106,13 @@ async function GenerateArtistsLinks(artistsArray) {
                             });
                             console.log('Cards :: ', cards.length);
                             const playlistFromConnectedArtist = await (0, scrapePlaylist_1.ScrapePlaylists)(page, cards);
-                            // we do what we need to do from here ... 
-                            let AfterFinalPlaylist = (0, utils_1.validatePlaylist)(playlistFromConnectedArtist);
+                            // validating playlists Here ...
+                            let AfterFinalPlaylist = (0, utils_1.validatePlaylistSaves)(playlistFromConnectedArtist);
                             AfterFinalPlaylist.map((playlist) => {
                                 FinalPlaylist.push(playlist);
                             });
-                            if (FinalPlaylist.length > 500) {
+                            if (FinalPlaylist.length > 100) {
+                                (0, utils_1.saveData)(`${OriginalArtistName}.csv`, FinalPlaylist);
                                 break;
                             }
                         }

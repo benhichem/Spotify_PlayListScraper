@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TreatUrl = TreatUrl;
-exports.validatePlaylist = validatePlaylist;
+exports.validatePlaylistSaves = validatePlaylistSaves;
 exports.saveData = saveData;
 function TreatUrl(cardInfo) {
     let id = cardInfo.split(':')[2].split('-')[0];
     return `https://open.spotify.com/playlist/${id}`;
 }
-function validatePlaylist(PlayLists) {
+function validatePlaylistSaves(PlayLists) {
     const returnplaylist = [];
-    for (let index = 0; index < PlayLists.length; index++) {
+    for (let index = 0; index < /* PlayLists.length */ 5; index++) {
         const element = PlayLists[index];
         const savesNumPhaseOne = element.listners.split('saves')[0];
         const saveNumPhaseTwo = savesNumPhaseOne.split(',');
