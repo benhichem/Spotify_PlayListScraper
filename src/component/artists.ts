@@ -140,7 +140,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
               AfterFinalPlaylist.map((playlist)=>{
                 FinalPlaylist.push(playlist)
               });
-              if(FinalPlaylist.length > 100){
+              if(FinalPlaylist.length > 50){
                 saveData(`${OriginalArtistName}.csv`,FinalPlaylist)
                 break;
               }
@@ -165,6 +165,8 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
     const returnArtists = [...x]
     console.log(returnArtists)
     return returnArtists */
+    await page.close();
+    await browser.close();
   } catch (error) {
     console.log(error);
   }

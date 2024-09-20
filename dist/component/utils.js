@@ -50,6 +50,8 @@ function saveData(path, data) {
                 url: element.url,
                 playlistName: element.title,
                 saves: element.listners,
+                playlistOwner: element.playlistCreator,
+                playlistOwnerProfile: element.playlistCreatorLink
             });
         }
         let data2 = (0, json_2_csv_1.json2csv)(playlists);

@@ -133,6 +133,8 @@ async function GenerateArtistsLinks(artistsArray) {
         const returnArtists = [...x]
         console.log(returnArtists)
         return returnArtists */
+        await page.close();
+        await browser.close();
     }
     catch (error) {
         console.log(error);

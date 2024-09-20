@@ -12,7 +12,9 @@ export type playlist = {
   title: string;
   listners: string;
   artists: Array<Artist>;
-  url: string
+  url: string;
+  playlistCreator:string; 
+  playlistCreatorLink:string;
 }
 
 export function validatePlaylistSaves(PlayLists: Array<playlist>): Array<playlist> {
@@ -46,7 +48,7 @@ import fs from "node:fs"
 export function saveData(path: string, data: Array<playlist>) {
   // we need to save artists alone, and also we need to save the playlists alone aswell
   //const artits: Array<string> = []
-  const playlists: Array<{ url: string; playlistName: string; saves: string }> = []
+  const playlists: Array<{url:string; playlistName:string; saves:string; playlistOwner:string;playlistOwnerProfile:string;}> = []
   try {
     for (let index = 0; index < data.length; index++) {
       const element = data[index];
@@ -59,6 +61,8 @@ export function saveData(path: string, data: Array<playlist>) {
         url: element.url,
         playlistName: element.title,
         saves: element.listners,
+        playlistOwner:element.playlistCreator,
+        playlistOwnerProfile:element.playlistCreatorLink
         
       })
     }
