@@ -102,7 +102,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
             console.log('Follower Counts undefined  :: ', followers )
             continue;
           } else if (typeof followers === "string") {
-            const numFolloweris = eval(followers.split(' ')[0])
+            const numFolloweris = eval(followers.split(' ')[0].split(',').join(''))
             console.log(numFolloweris)
             if(numFolloweris < 40000){
               console.log('follower count is lower than 100k')
