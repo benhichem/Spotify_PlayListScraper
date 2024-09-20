@@ -74,19 +74,19 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
         });
       });
 
-      console.log('Avalible Artists Found is  :: ', AvaliableArtistFound.length); 
-
       // console.log(`Current Playlist record is ${FinalPlaylist.length}`)
       for (var i = 0; i < AvaliableArtistFound.length; i++) {
         console.log(`Current Playlist record is ${FinalPlaylist.length}`);
         //await page.goto(AvaliableArtistFound)
         // we check if artist has +1k followers
         const elementArtist = AvaliableArtistFound[i];
+
         try {
           await page.goto(elementArtist.artistUrl, {
             timeout: 0,
             waitUntil: "networkidle2",
           });
+
           const followers = await page.evaluate(() => {
             return document.querySelector("span.Ydwa1P5GkCggtLlSvphs")
               ? (
@@ -96,6 +96,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
                 ).innerText
               : 0;
           });
+          
           if (typeof followers === "number") {
             continue;
           } else if (typeof followers === "string") {
@@ -105,6 +106,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
             }else{
               // its a valid Artist 
               console.log(`${elementArtist.artistName} is a valid Artist ... `)
+              
                await page.goto(`${elementArtist.artistUrl}/discovered-on`,{timeout:0, waitUntil:"networkidle2"})
                const cards =  await page.evaluate(() => {
                 let attribute_album_links: Array<string> = [];
@@ -119,7 +121,8 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
                 );
                 return attribute_album_links;
               });
-              
+
+              console.log('Cards :: ', cards.length);
               const playlistFromConnectedArtist = await ScrapePlaylists(page, cards)
               
               // we do what we need to do from here ... 
