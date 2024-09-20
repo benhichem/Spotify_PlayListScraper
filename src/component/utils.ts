@@ -3,13 +3,15 @@ export function TreatUrl(cardInfo: string): string {
   return `https://open.spotify.com/playlist/${id}`
 }
 
+export type Artist = {
+  artistName:string; 
+  artistUrl:string;
+}
+
 export type playlist = {
   title: string;
   listners: string;
-  artists: Array<{
-    artistName:string; 
-    artistUrl:string;
-  }>;
+  artists: Array<Artist>;
   url: string
 }
 
