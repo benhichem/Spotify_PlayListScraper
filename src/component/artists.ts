@@ -17,7 +17,8 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
       height: 900,
       width: 1600,
     });
-    for (let index = 1; index <= 5; index++) {
+    
+    for (let index = 1; index < 3; index++) {
       const url = artistsArray[index];
 
       // Getting Artist Name
@@ -33,6 +34,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
           : "";
         return name;
       });
+      console.log(OriginalArtistName)
 
       // Getting Artist Cards
       await page.goto(`${url}/discovered-on`, {
@@ -64,10 +66,12 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
       console.log("Original Playlist Cards Found is :: ", playlistInfo.length);
 
       const AvaliableArtistFound: Array<Artist> = [];
+
       // final Playlist To return and print into csv
       const FinalPlaylist:Array<playlist> = [];
+      let valideOriginalCard = validatePlaylistSaves(playlistInfo)
       
-      playlistInfo.map((item)=>{
+      valideOriginalCard.map((item)=>{
         FinalPlaylist.push(item)
       });
 
@@ -147,6 +151,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
             }
           }
         } catch (error) {
+          console.log(error)
           console.log(
             `failed to scrape ${elementArtist.artistName} at ${elementArtist.artistUrl}`
           );
@@ -154,17 +159,6 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
       }
     }
 
-    /*     const artists = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('div > span > div > a')).map((item) => {
-        return (item as HTMLAnchorElement).href
-      })
-    }) */
-
-    /*artists.push(url)
-    let x = new Set(artists)
-    const returnArtists = [...x]
-    console.log(returnArtists)
-    return returnArtists */
     await page.close();
     await browser.close();
   } catch (error) {
