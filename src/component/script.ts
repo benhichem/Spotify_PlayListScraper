@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer-extra"
 import Stealthplugin from "puppeteer-extra-plugin-stealth"
-import { saveData, TreatUrl, validatePlaylist } from "./utils";
+import { saveData, TreatUrl, validatePlaylistSaves } from "./utils";
 import { ScrapePlaylists } from "./scrapePlaylist";
 const playlistInterested: Array<{ title: string; listners: string; artists: Array<string> }> = []
 
@@ -35,7 +35,7 @@ export async function StartScript(url: string, fileNAme: string) {
     if (albums) {
       let list = await ScrapePlaylists(page, albums)
       // saveData("ty_StoneHawker.csv",validatePlaylist(list))
-      let Validplaylist = validatePlaylist(list)
+      let Validplaylist = validatePlaylistSaves(list)
       saveData(`${fileNAme.trim()}.csv`, Validplaylist)
     }
 
