@@ -111,7 +111,7 @@ async function GenerateArtistsLinks(artistsArray) {
                             AfterFinalPlaylist.map((playlist) => {
                                 FinalPlaylist.push(playlist);
                             });
-                            if (FinalPlaylist.length > 100) {
+                            if (FinalPlaylist.length > 50) {
                                 (0, utils_1.saveData)(`${OriginalArtistName}.csv`, FinalPlaylist);
                                 break;
                             }
