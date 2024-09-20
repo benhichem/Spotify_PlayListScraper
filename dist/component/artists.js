@@ -50,7 +50,12 @@ async function GenerateArtistsLinks(artistsArray) {
                 return attribute_album_links;
             });
             const playlistInfo = await (0, scrapePlaylist_1.ScrapePlaylists)(page, OriginalArtistAlbums);
+            console.log(playlistInfo);
             console.log("Original Playlist Cards Found is :: ", playlistInfo.length);
+            if (playlistInfo.length === 0) {
+                console.log(`${OriginalArtistAlbums}`);
+                continue;
+            }
             const AvaliableArtistFound = [];
             // final Playlist To return and print into csv
             const FinalPlaylist = [];

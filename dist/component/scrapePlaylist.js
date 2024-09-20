@@ -61,6 +61,7 @@ async function ScrapePlaylists(page, albums) {
             }
         }
         catch (error) {
+            console.log(error);
             return [];
         }
     }
