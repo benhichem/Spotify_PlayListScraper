@@ -133,6 +133,7 @@ async function GenerateArtistsLinks(artistsArray) {
         }
         await page.close();
         await browser.close();
+        return;
     }
     catch (error) {
         console.log(error);

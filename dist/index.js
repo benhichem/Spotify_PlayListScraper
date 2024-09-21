@@ -4,12 +4,15 @@ const artists_1 = require("./component/artists");
 (async () => {
     console.log('[Refectoring stage 1 :: ]');
     const links = [
+        "https://open.spotify.com/artist/75OSuJw6r1LCdYgmTt0gHs",
+        "https://open.spotify.com/artist/1y20PpXw0yeuJ1avCD0Ob9",
+        "https://open.spotify.com/artist/2iojnBLj0qIMiKPvVhLnsH",
         //  "https://open.spotify.com/artist/2gqMBdyddvN82dzZt4ZF14",
-        "https://open.spotify.com/artist/068h66CFkNBvqw5SaIQ3ZA",
-        /*     "https://open.spotify.com/artist/2MPe4h9blynt1CfCkMku6j",
-            "https://open.spotify.com/artist/57FbfTkxFU7crAkIEtioth",
-            "https://open.spotify.com/artist/75OSuJw6r1LCdYgmTt0gHs",
-            "https://open.spotify.com/artist/1y20PpXw0yeuJ1avCD0Ob9",
+        // "https://open.spotify.com/artist/068h66CFkNBvqw5SaIQ3ZA",
+        /*   //  "https://open.spotify.com/artist/2MPe4h9blynt1CfCkMku6j",
+            //"https://open.spotify.com/artist/57FbfTkxFU7crAkIEtioth",
+            
+            
             "https://open.spotify.com/artist/2iojnBLj0qIMiKPvVhLnsH",
             "https://open.spotify.com/artist/6dROiL44pIQZVNZ6Bc0OJO",
             "https://open.spotify.com/artist/7G6hXrjGpi6I7waNl4wxAk",
