@@ -20,7 +20,7 @@ async function GenerateArtistsLinks(artistsArray) {
             height: 900,
             width: 1600,
         });
-        for (let index = 1; index < artistsArray.length; index++) {
+        for (let index = 0; index < artistsArray.length; index++) {
             const url = artistsArray[index];
             // Getting Artist Name
             await page.goto(url, { timeout: 0, waitUntil: "networkidle2" });
