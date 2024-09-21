@@ -166,6 +166,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
 
     await page.close();
     await browser.close();
+    return
   } catch (error) {
     console.log(error);
   }
