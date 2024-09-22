@@ -9,6 +9,7 @@ export async function ScrapePlaylists(
 ): Promise<Array<playlist>> {
   console.log(albums.length);
   let playlists: Array<playlist> = [];
+  
   for (var i = 0; i < albums.length; i++) {
     const album = albums[i];
     try {
@@ -50,12 +51,13 @@ export async function ScrapePlaylists(
           }
         });
         const art3:Array<{artistName:string; artistUrl:string}> = [];
+
         const art = Array.from(
           document.querySelectorAll('div[data-testid="tracklist-row"]')
         ).map((item) => {
           return {
-            artistName: (item as HTMLElement).innerText.split("\n")[1],
-            artistUrl: item.querySelectorAll("a")[1].href,
+            artistName: (item as HTMLElement).innerText.split("\n")[1] ? (item as HTMLElement).innerText.split("\n")[1] : null,
+            artistUrl: item.querySelectorAll("a")[1] ?item.querySelectorAll("a")[1].href  : null,
           };
         });
 
@@ -79,7 +81,6 @@ export async function ScrapePlaylists(
       }
     } catch (error) {
       console.log(error)
-      return [] as Array<playlist>;
     }
   }
   return playlists;

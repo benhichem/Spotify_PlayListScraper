@@ -102,7 +102,10 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
         //await page.goto(AvaliableArtistFound)
         // we check if artist has +1k followers
         const elementArtist = AvaliableArtistFound[i];
-
+        if(elementArtist.artistUrl === null ){
+          console.log('artist Url is null ...')
+          continue;
+        }
         try {
           await page.goto(elementArtist.artistUrl, {
             timeout: 0,

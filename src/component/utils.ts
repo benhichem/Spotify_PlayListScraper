@@ -3,9 +3,10 @@ export function TreatUrl(cardInfo: string): string {
   return `https://open.spotify.com/playlist/${id}`
 }
 
+// this is bad don't do this kids
 export type Artist = {
-  artistName:string; 
-  artistUrl:string;
+  artistName:string | null; 
+  artistUrl:string | null;
 }
 
 export type playlist = {
