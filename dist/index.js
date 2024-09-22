@@ -4,9 +4,9 @@ const artists_1 = require("./component/artists");
 (async () => {
     console.log("[Refectoring stage 1 :: ]");
     const links = [
-        "https://open.spotify.com/artist/6dROiL44pIQZVNZ6Bc0OJO",
+        /* "https://open.spotify.com/artist/6dROiL44pIQZVNZ6Bc0OJO",
         "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
-        "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u",
+        "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u", */
         "https://open.spotify.com/artist/3Q8wgwyVVv0z4UEh1HB0KY",
         /*     "https://open.spotify.com/artist/57kIMCLPgkzQlXjblX7XXP",
         "https://open.spotify.com/artist/2BpAc5eK7Rz5GAwSp9UYXa" */
