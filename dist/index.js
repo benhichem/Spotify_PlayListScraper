@@ -4,10 +4,12 @@ const artists_1 = require("./component/artists");
 (async () => {
     console.log('[Refectoring stage 1 :: ]');
     const links = [
-        "https://open.spotify.com/artist/6dROiL44pIQZVNZ6Bc0OJO",
-        "https://open.spotify.com/artist/3VStI6m5Ig9FAyUaa0lYAP",
-        "https://open.spotify.com/artist/3Q8wgwyVVv0z4UEh1HB0KY",
-        "https://open.spotify.com/artist/3IqWMVFksTbtL2EaFi5o8k",
+        "https://open.spotify.com/artist/57kIMCLPgkzQlXjblX7XXP",
+        "https://open.spotify.com/artist/2BpAc5eK7Rz5GAwSp9UYXa"
+        //  "https://open.spotify.com/artist/6dROiL44pIQZVNZ6Bc0OJO",
+        //  "https://open.spotify.com/artist/3VStI6m5Ig9FAyUaa0lYAP",
+        /*     "https://open.spotify.com/artist/3Q8wgwyVVv0z4UEh1HB0KY",
+            "https://open.spotify.com/artist/3IqWMVFksTbtL2EaFi5o8k", */
         /*     "https://open.spotify.com/artist/0dvKgSdNB2U1gfp6ZcekYi",
             "https://open.spotify.com/artist/265tUaalp4HXRcbUyGAGoI",
             "https://open.spotify.com/artist/5IcGbIAgdns0R5EJKHMjCQ", */
@@ -28,8 +30,8 @@ const artists_1 = require("./component/artists");
             
            
         
-            "https://open.spotify.com/artist/57kIMCLPgkzQlXjblX7XXP",
-            "https://open.spotify.com/artist/2BpAc5eK7Rz5GAwSp9UYXa",
+            ,
+            ,
             "https://open.spotify.com/artist/7xUZ4069zcyBM4Bn10NQ1c",
             "https://open.spotify.com/artist/7FDlvgcodNfC0IBdWevl4u" */
     ];
