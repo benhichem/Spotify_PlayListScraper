@@ -41,8 +41,8 @@ async function ScrapePlaylists(page, albums) {
                 const art3 = [];
                 const art = Array.from(document.querySelectorAll('div[data-testid="tracklist-row"]')).map((item) => {
                     return {
-                        artistName: item.innerText.split("\n")[1],
-                        artistUrl: item.querySelectorAll("a")[1].href,
+                        artistName: item.innerText.split("\n")[1] ? item.innerText.split("\n")[1] : null,
+                        artistUrl: item.querySelectorAll("a")[1] ? item.querySelectorAll("a")[1].href : null,
                     };
                 });
                 const artSet = new Set(art);
@@ -66,7 +66,6 @@ async function ScrapePlaylists(page, albums) {
         }
         catch (error) {
             console.log(error);
-            return [];
         }
     }
     return playlists;
