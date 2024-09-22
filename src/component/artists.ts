@@ -22,7 +22,15 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
       const url = artistsArray[index];
 
       // Getting Artist Name
-      await page.goto(url, { timeout: 0, waitUntil: "networkidle2" });
+      let navigation = await page.goto(url, { timeout: 0, waitUntil: "networkidle2" }).catch((error)=>{
+        return null
+      });
+
+      if(navigation === null){
+        console.log('Failed To navigate to url :: ', url);
+        continue;
+      }
+
       await page.waitForSelector('span[data-testid="entityTitle"]');
       const OriginalArtistName = await page.evaluate(() => {
         let name = document.querySelector('span[data-testid="entityTitle"]')
@@ -149,7 +157,12 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
               AfterFinalPlaylist.map((playlist)=>{
                 FinalPlaylist.push(playlist)
               });
+
               if(FinalPlaylist.length > 500){
+                saveData(`./csvs/${OriginalArtistName}.csv`,FinalPlaylist)
+                break;
+              }
+              if(FinalPlaylist.length - index  === 1){
                 saveData(`./csvs/${OriginalArtistName}.csv`,FinalPlaylist)
                 break;
               }
@@ -160,6 +173,7 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
           console.log(
             `failed to scrape ${elementArtist.artistName} at ${elementArtist.artistUrl}`
           );
+          continue;
         }
       }
     }
@@ -169,5 +183,6 @@ export async function GenerateArtistsLinks(artistsArray: Array<string>) {
     return
   } catch (error) {
     console.log(error);
+   /*  continue; */
   }
 }
